@@ -1,46 +1,57 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { Toast, ToastContainer } from 'react-bootstrap';
+import { createContext, useContext, useState, useEffect } from 'react';
 
-const CartContext = createContext();
+const CartContext = createContext(null);
 
-export const CartProvider = ({ children }) => {
-  const [cart, setCart] = useState(() => {
+// Lee el carrito guardado. Si el dato está roto, arranca con el carrito vacío.
+const leerCarritoGuardado = () => {
+  try {
     const savedCart = localStorage.getItem('carrito_awayi');
     return savedCart ? JSON.parse(savedCart) : [];
-  });
+  } catch {
+    return [];
+  }
+};
 
-  // Estados para el Toast (Aviso) y para el Mini Carrito (Offcanvas)
-  const [showToast, setShowToast] = useState(false);
-  const [showMiniCart, setShowMiniCart] = useState(false);
-  const [lastAddedItem, setLastAddedItem] = useState(null);
+export const CartProvider = ({ children }) => {
+  const [cart, setCart] = useState(leerCarritoGuardado);
+
+  // Aviso que muestra AvisoCarrito.jsx: { tipo: 'agregado' | 'sin-stock', producto, id }
+  const [aviso, setAviso] = useState(null);
 
   useEffect(() => {
     localStorage.setItem('carrito_awayi', JSON.stringify(cart));
   }, [cart]);
 
-  // Función para agregar producto
   const addToCart = (product) => {
+    const enCarrito = cart.find((item) => item.id === product.id);
+    const cantidadActual = enCarrito ? enCarrito.cantidad : 0;
+
+    // No deja superar el stock
+    if (cantidadActual >= product.stock) {
+      setAviso((anterior) => ({ tipo: 'sin-stock', producto: product, id: (anterior?.id ?? 0) + 1 }));
+      return;
+    }
+
     setCart((prevCart) => {
-      const existingIndex = prevCart.findIndex((item) => item.id === product.id);
-      if (existingIndex > -1) {
-        const updatedCart = [...prevCart];
-        updatedCart[existingIndex].cantidad += 1;
-        return updatedCart;
+      const existe = prevCart.find((item) => item.id === product.id);
+      if (existe) {
+        // Crea un objeto nuevo en vez de modificar el anterior
+        return prevCart.map((item) =>
+          item.id === product.id ? { ...item, cantidad: item.cantidad + 1 } : item
+        );
       }
       return [...prevCart, { ...product, cantidad: 1 }];
     });
 
-    // Guardamos el último ítem agregado
-    setLastAddedItem(product);
-    // Mostramos el aviso (Toast) y abrimos el mini carrito
-    setShowToast(true);
-    setShowMiniCart(true);
+    setAviso((anterior) => ({ tipo: 'agregado', producto: product, id: (anterior?.id ?? 0) + 1 }));
   };
 
   const increaseQuantity = (id) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === id ? { ...item, cantidad: item.cantidad + 1 } : item
+        item.id === id && item.cantidad < item.stock
+          ? { ...item, cantidad: item.cantidad + 1 }
+          : item
       )
     );
   };
@@ -62,7 +73,7 @@ export const CartProvider = ({ children }) => {
   };
 
   const totalCantidad = cart.reduce((acc, item) => acc + item.cantidad, 0);
-  const totalPrecio = cart.reduce((acc, item) => acc + (item.precio || 20000) * item.cantidad, 0);
+  const totalPrecio = cart.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
 
   return (
     <CartContext.Provider
@@ -75,46 +86,20 @@ export const CartProvider = ({ children }) => {
         clearCart,
         totalCantidad,
         totalPrecio,
-        showMiniCart,
-        setShowMiniCart
+        aviso,
+        setAviso,
       }}
     >
       {children}
-
-      {/* Cartel Flotante: ¡Producto agregado! */}
-      <ToastContainer position="bottom-end" className="p-3 position-fixed z-3">
-        <Toast 
-          onClose={() => setShowToast(false)} 
-          show={showToast} 
-          delay={3000} 
-          autohide
-          bg="dark"
-          className="text-white shadow-lg"
-        >
-          <Toast.Header closeVariant="white" className="bg-dark text-white border-bottom border-secondary">
-            <strong className="me-auto">🛒 ¡Producto agregado!</strong>
-            <small className="text-light">Ahora</small>
-          </Toast.Header>
-          <Toast.Body className="d-flex align-items-center">
-            {lastAddedItem && (
-              <>
-                <img 
-                  src={lastAddedItem.imagen} 
-                  alt={lastAddedItem.nombre} 
-                  style={{ width: '40px', height: '40px', objectFit: 'contain' }}
-                  className="bg-light rounded p-1 me-3"
-                />
-                <div>
-                  <div className="fw-bold">{lastAddedItem.nombre}</div>
-                  <small className="text-light">Se sumó correctamente a tu pedido.</small>
-                </div>
-              </>
-            )}
-          </Toast.Body>
-        </Toast>
-      </ToastContainer>
     </CartContext.Provider>
   );
 };
 
-export const useCart = () => useContext(CartContext);
+// eslint-disable-next-line react-refresh/only-export-components
+export const useCart = () => {
+  const context = useContext(CartContext);
+  if (!context) {
+    throw new Error('useCart tiene que usarse dentro de <CartProvider>');
+  }
+  return context;
+};
