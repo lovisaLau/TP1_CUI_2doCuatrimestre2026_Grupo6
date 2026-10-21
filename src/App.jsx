@@ -14,7 +14,7 @@ function App() {
   return (
     <CartProvider>
       <CambioDeRuta />
-      <div className="d-flex flex-column min-vh-100 bg-light">
+      <div className="d-flex flex-column min-vh-100 fondo-pagina">
         <NavigationBar />
         <main className="flex-grow-1">
           <Routes>
