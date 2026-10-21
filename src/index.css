@@ -1,3 +1,6 @@
+/* Tipografías */
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Nunito:wght@400;600;700&display=swap');
+
 .swiper-button-next,
 .swiper-button-prev {
   color: #212529 !important; /* Color dark de Bootstrap */
@@ -5,4 +8,99 @@
 
 .swiper-pagination-bullet-active {
   background-color: #212529 !important;
+}
+
+/* ---- Paleta Awayi (colores del fileteado) ---- */
+:root {
+  --awayi-negro: #1b1b1b;
+  --awayi-rojo: #b3122e;
+  --awayi-rojo-oscuro: #8f0e25;
+  --awayi-verde: #1f7a4d;
+  --awayi-dorado: #d4a017;
+  --awayi-crema: #faf6ee;
+
+  /* Le decimos a Bootstrap que use nuestros colores y tipografía */
+  --bs-body-font-family: 'Nunito', system-ui, sans-serif;
+  --bs-body-bg: var(--awayi-crema);
+  --bs-link-color-rgb: 179, 18, 46;
+  --bs-link-hover-color-rgb: 143, 14, 37;
+}
+
+h1, h2, .navbar-brand, .display-5, .display-6 {
+  font-family: 'Abril Fatface', Georgia, serif;
+  font-weight: 400 !important;
+  letter-spacing: 0.5px;
+}
+
+/* El fondo general de la app (App.jsx usa bg-light) toma el color crema */
+.bg-light {
+  background-color: var(--awayi-crema) !important;
+}
+
+/* Botón principal en rojo fileteado en vez del azul de Bootstrap */
+.btn-primary {
+  --bs-btn-bg: var(--awayi-rojo);
+  --bs-btn-border-color: var(--awayi-rojo);
+  --bs-btn-hover-bg: var(--awayi-rojo-oscuro);
+  --bs-btn-hover-border-color: var(--awayi-rojo-oscuro);
+  --bs-btn-active-bg: var(--awayi-rojo-oscuro);
+  --bs-btn-active-border-color: var(--awayi-rojo-oscuro);
+  --bs-btn-disabled-bg: var(--awayi-rojo);
+  --bs-btn-disabled-border-color: var(--awayi-rojo);
+}
+
+.btn-success {
+  --bs-btn-bg: var(--awayi-verde);
+  --bs-btn-border-color: var(--awayi-verde);
+  --bs-btn-hover-bg: #17603c;
+  --bs-btn-hover-border-color: #17603c;
+}
+
+/* Línea dorada debajo de la barra de navegación */
+.navbar {
+  border-bottom: 3px solid var(--awayi-dorado);
+}
+
+/* ---- Banner de Inicio ---- */
+.banner-imagen {
+  height: 480px;
+  object-fit: cover;
+  filter: brightness(0.55);
+}
+
+.banner-texto {
+  bottom: 25%;
+}
+
+@media (max-width: 576px) {
+  .banner-imagen {
+    height: 300px;
+  }
+}
+
+/* ---- Swiper (carrusel de destacados) ---- */
+.carrusel-destacados {
+  --swiper-navigation-color: var(--awayi-negro);
+  --swiper-pagination-color: var(--awayi-rojo);
+  --swiper-navigation-size: 18px;
+  padding-bottom: 40px;
+}
+
+/* Flechas en un círculo blanco, a la altura de la imagen, para que no tapen el texto */
+.carrusel-destacados .swiper-button-next,
+.carrusel-destacados .swiper-button-prev {
+  top: 35%;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* En celular se navega deslizando: se ocultan las flechas */
+@media (max-width: 576px) {
+  .carrusel-destacados .swiper-button-next,
+  .carrusel-destacados .swiper-button-prev {
+    display: none;
+  }
 }
