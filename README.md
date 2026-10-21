@@ -28,6 +28,7 @@ La aplicación está inspirada en la cultura e identidad argentinas, y ofrece Pr
 - **Componentes de interfaz:** Carousel (banner), Offcanvas (mini carrito) y Toast (avisos) de React Bootstrap
 - **Carrusel de productos destacados:** Swiper
 - **Persistencia del carrito:** localStorage del navegador
+- **Iconos:** react-icons (redes sociales en el pie de la página)
 
 ## 📋 Funcionalidades Cumplidas (Requerimientos del TP)
 
