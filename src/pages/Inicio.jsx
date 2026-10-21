@@ -17,7 +17,7 @@ import 'swiper/css/pagination';
 
 const banners = [
   { imagen: banner1, titulo: 'Colección Provincias Argentinas', texto: 'El arte del fileteado porteño con el orgullo de cada provincia.' },
-  { imagen: banner2, titulo: 'Remeras 100% algodón', texto: 'Diseños únicos, estampados en serigrafía de alta duración.' },
+  { imagen: banner2, titulo: '', texto: '' },
 ];
 
 
