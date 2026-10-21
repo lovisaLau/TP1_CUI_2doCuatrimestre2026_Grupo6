@@ -16,7 +16,7 @@ La aplicación está inspirada en la cultura e identidad argentinas, y ofrece Pr
 ## 🚀 Demo y Enlaces
 
 - Repositorio en GitHub: <https://github.com/lovisaLau/TP1_CUI_2doCuatrimestre2026_Grupo6>
-- Deploy en vivo (Netlify): <https://linkdelaura.netlify.app> ATENCIÓN ACÁ
+- Deploy en vivo (Netlify): <https://awayi-remeras.netlify.app> 
 
 ## 🛠️ Tecnologías utilizadas
 
