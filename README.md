@@ -1,25 +1,27 @@
-# 🇦🇷 Awayi Remeras - E-commerce de Indumentaria (UNAHUR)
+# Awayi Remeras - Tienda Online de Indumentaria (UNAHUR)
 
-¡Bienvenido/a al repositorio oficial de Awayi Remeras! Este proyecto es un e-commerce desarrollado como Trabajo Práctico Integrador para la materia Construcción de Interfaces de Usuario en la Universidad Nacional de Hurlingham (UNAHUR).
+¡Bienvenido/a al repositorio oficial de Awayi Remeras!
 
-La aplicación está inspirada en la cultura e identidad argentina, ofreciendo una colección exclusiva de remeras 100% algodón estampadas con diseños de la colección Fileteado Porteño de las distintas provincias del país, de la marca Awayi.
+ Este proyecto simula una tienda online y fue desarrollado como Trabajo Práctico para la materia Construcción de Interfaces de Usuario en la Universidad Nacional de Hurlingham (UNAHUR).
+
+La aplicación está inspirada en la cultura e identidad argentinas, y ofrece Fileteado Porteño, la colección exclusiva de la marca Awayi: remeras 100 % algodón estampadas con diseños dedicados a cada provincia de nuestro país.
 
 ## 👥 Integrantes del Equipo
 
-- Integrante 1: Miria Silvina Yáñez
-- Integrante 2: Milagros Carucci
-- Integrante 3: Marilin Grisafi
-- Integrante 4: Laura Lovisa
+- Miria Silvina Yáñez
+- Milagros Carucci
+- Marilin Grisafi
+- Laura Lovisa
 
 ## 🚀 Demo y Enlaces
 
 - Repositorio en GitHub: <https://github.com/lovisaLau/TP1_CUI_2doCuatrimestre2026_Grupo2>
-- Deploy en vivo (Vercel / Netlify):
+- Deploy en vivo (Netlify)
 
 ## 🛠️ Tecnologías Utilizadas
 
 - Library Principal: React.js
-- Enrutamiento: React Router DOM (v6)
+- Enrutamiento: React Router DOM (v7)
 - Gestión de Estado Global: React Context API (useContext, useState, useEffect)
 - Diseño y Estilos: React-Bootstrap / Bootstrap 5
 - Persistencia de Datos: localStorage (Navegador)
@@ -88,7 +90,7 @@ Para ejecutar este proyecto en tu entorno local, sigue estos sencillos pasos:
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/lovisaLau/TP1_CUI_2doCuatrimestre2026_Grupo2
+git clone https://github.com/lovisaLau/TP1_CUI_2doCuatrimestre2026_Grupo6
 ```
 
 ### 2. Ingresar a la carpeta del proyecto
