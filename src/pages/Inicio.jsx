@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import ProductoCard from '../components/ProductoCard';
 import { productos } from '../data/productos';
 import logo from '../images/logo.png';
-import banner1 from '../images/banner-1.jpg';
-import banner2 from '../images/banner-2.jpg';
+import banner1 from '../images/banner-1.png';
+import banner2 from '../images/banner-2.png';
 
 // Swiper: carrusel de varios productos a la vez
 import { Swiper, SwiperSlide } from 'swiper/react';
