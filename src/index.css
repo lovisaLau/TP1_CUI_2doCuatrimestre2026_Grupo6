@@ -71,8 +71,16 @@ h1, h2, .navbar-brand, .display-5, .display-6 {
   filter: brightness(0.85);   /* apenas más oscura, para que el texto se lea */
 }
 
-.banner-texto {
-  bottom: 6%;                 /* texto y botón abajo, lejos de la palabra Awayi */
+/* Diapositiva con remeras: solo el botón, abajo */
+.banner-texto-abajo {
+  bottom: 4%;
+}
+
+/* Diapositiva con adornos: texto en el centro vacío */
+.banner-texto-centro {
+  top: 50%;
+  bottom: auto;
+  transform: translateY(-50%);
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 

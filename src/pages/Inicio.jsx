@@ -6,6 +6,7 @@ import logo from '../images/logo.png';
 import banner1 from '../images/banner-1.png';
 import banner2 from '../images/banner-2.png';
 
+
 // Swiper: carrusel de varios productos a la vez
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, A11y } from 'swiper/modules';
@@ -13,13 +14,16 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
+
 const banners = [
   { imagen: banner1, titulo: 'Colección Provincias Argentinas', texto: 'El arte del fileteado porteño con el orgullo de cada provincia.' },
   { imagen: banner2, titulo: 'Remeras 100% algodón', texto: 'Diseños únicos, estampados en serigrafía de alta duración.' },
 ];
 
+
 const Inicio = () => {
   const productosDestacados = productos.filter((p) => p.destacado);
+
 
   return (
     <>
@@ -39,6 +43,7 @@ const Inicio = () => {
         ))}
       </Carousel>
 
+
       {/* --- PRESENTACIÓN DE LA MARCA --- */}
       <section className="py-5 bg-white">
         <Container>
@@ -56,6 +61,7 @@ const Inicio = () => {
           </Row>
         </Container>
       </section>
+
 
       {/* --- BENEFICIOS --- */}
       <section className="py-4 border-top border-bottom">
@@ -80,12 +86,14 @@ const Inicio = () => {
         </Container>
       </section>
 
+
       {/* --- DESTACADOS (Swiper) --- */}
       <Container className="py-5">
         <div className="text-center mb-4">
           <h2 className="fw-bold">Productos destacados</h2>
           <p className="text-muted">Elegí la provincia que más te identifique</p>
         </div>
+
 
         <Swiper
           modules={[Navigation, Pagination, A11y]}
@@ -111,6 +119,7 @@ const Inicio = () => {
           ))}
         </Swiper>
 
+
         <div className="text-center mt-4">
           <Button as={Link} to="/productos" variant="primary" size="lg">
             Ver todo el catálogo
@@ -120,5 +129,6 @@ const Inicio = () => {
     </>
   );
 };
+
 
 export default Inicio;
