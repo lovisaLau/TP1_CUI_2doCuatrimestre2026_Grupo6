@@ -63,19 +63,17 @@ h1, h2, .navbar-brand, .display-5, .display-6 {
 
 /* ---- Banner de Inicio ---- */
 .banner-imagen {
-  height: 480px;
+  width: 100%;
+  height: auto;               /* la imagen se ve completa, sin recortes */
+  max-height: 620px;          /* en pantallas muy anchas no crece de más */
   object-fit: cover;
-  filter: brightness(0.55);
+  object-position: center top; /* si hay que recortar, se conserva la parte de arriba (Awayi) */
+  filter: brightness(0.85);   /* apenas más oscura, para que el texto se lea */
 }
 
 .banner-texto {
-  bottom: 25%;
-}
-
-@media (max-width: 576px) {
-  .banner-imagen {
-    height: 300px;
-  }
+  bottom: 6%;                 /* texto y botón abajo, lejos de la palabra Awayi */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
 }
 
 /* ---- Swiper (carrusel de destacados) ---- */
