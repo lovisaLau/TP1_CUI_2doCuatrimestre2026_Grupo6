@@ -141,9 +141,9 @@ npm run dev
 
 ### 5. Abrir en el navegador
 
-Ingresa a <http://localhost:5173/> (o la dirección indicada en la terminal) para interactuar con la aplicación.
+Ingresar a <http://localhost:5173/> (o a la dirección indicada en la terminal) para interactuar con la aplicación.
 
 ## 🎓 Universidad Nacional de Hurlingham (UNAHUR)
 
 - **Carrera:** Tecnicatura Universitaria en Programación / Licenciatura en Informática
-- **Año:** 2026 2do Cuatrimestre
+- **Año:** 2026 2° Cuatrimestre

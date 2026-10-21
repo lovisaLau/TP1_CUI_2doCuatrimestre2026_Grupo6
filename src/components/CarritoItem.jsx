@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap';
 import { useCart } from '../context/CartContext';
 
-// Una fila del carrito. "compacto" es la versión chica del panel lateral.
+// Una fila del carrito,  "compacto" es la versión chica del panel lateral
 const CarritoItem = ({ item, compacto = false }) => {
     const { increaseQuantity, decreaseQuantity, removeFromCart } = useCart();
     const subtotal = item.precio * item.cantidad;

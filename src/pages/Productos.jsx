@@ -3,7 +3,7 @@ import { Container, Row, Col, Form, InputGroup, Button } from 'react-bootstrap';
 import ProductoCard from '../components/ProductoCard';
 import { productos, categorias } from '../data/productos';
 
-// Pasa a minúsculas y saca las tildes: "Río" y "rio" coinciden
+// Pasa a minúsculas y saca las tildes, "Río" y "rio" coinciden
 const normalizar = (texto) =>
   texto.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 
@@ -121,7 +121,7 @@ export const Productos = () => {
         )}
       </div>
 
-      {/* Grilla de productos: el Col va acá, no dentro de la card */}
+      {/* Grilla de productos: el Col va acá y no dentro de la card */}
       <Row className="g-4">
         {productosFiltrados.length > 0 ? (
           productosFiltrados.map((prod) => (

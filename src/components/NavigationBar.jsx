@@ -10,7 +10,7 @@ export const NavigationBar = () => {
   const navigate = useNavigate();
   const { cart, totalCantidad, totalPrecio } = useCart();
 
-  // El panel lateral ahora es estado local: solo lo abre el botón del carrito
+  // El panel lateral ahora es estado local, solo lo abre el botón del carrito
   const [showMiniCart, setShowMiniCart] = useState(false);
 
   const irA = (ruta) => {

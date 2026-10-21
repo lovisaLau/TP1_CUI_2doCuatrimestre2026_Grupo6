@@ -7,7 +7,7 @@ export const DetalleProducto = () => {
   const { id } = useParams();
   const { addToCart, cart } = useCart();
 
-  // Buscamos el producto por su id (el parámetro de la URL llega como texto)
+  // Buscar el producto por su id, parámetro como texto
   const producto = productos.find((p) => p.id === Number(id));
 
   if (!producto) {

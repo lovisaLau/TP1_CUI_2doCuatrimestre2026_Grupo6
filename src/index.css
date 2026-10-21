@@ -19,7 +19,7 @@
   --awayi-dorado: #d4a017;
   --awayi-crema: #faf6ee;
 
-  /* Le decimos a Bootstrap que use nuestros colores y tipografía */
+  /* Indicación a Bootstrap para que use nuestros colores y tipografía */
   --bs-body-font-family: 'Nunito', system-ui, sans-serif;
   --bs-body-bg: var(--awayi-crema);
   --bs-link-color-rgb: 179, 18, 46;
@@ -32,12 +32,12 @@ h1, h2, .navbar-brand, .display-5, .display-6 {
   letter-spacing: 0.5px;
 }
 
-/* El fondo general de la app (App.jsx usa bg-light) toma el color crema */
+/* El fondo general de la app (App.jsx usa bg-light) color crema */
 .bg-light {
   background-color: var(--awayi-crema) !important;
 }
 
-/* Botón principal en rojo fileteado en vez del azul de Bootstrap */
+/* Botón principal en rojo fileteado */
 .btn-primary {
   --bs-btn-bg: var(--awayi-rojo);
   --bs-btn-border-color: var(--awayi-rojo);
@@ -64,11 +64,11 @@ h1, h2, .navbar-brand, .display-5, .display-6 {
 /* ---- Banner de Inicio ---- */
 .banner-imagen {
   width: 100%;
-  height: auto;               /* la imagen se ve completa, sin recortes */
-  max-height: 620px;          /* en pantallas muy anchas no crece de más */
+  height: auto;                       /* la imagen se ve completa, sin recortes */
+  max-height: 620px;                  /* en pantallas muy anchas no crece de más */
   object-fit: cover;
-  object-position: center top; /* si hay que recortar, se conserva la parte de arriba (Awayi) */
-  filter: brightness(0.85);   /* apenas más oscura, para que el texto se lea */
+  object-position: center top;      /* si hay que recortar, se conserva la parte de arriba (Awayi) */
+  filter: brightness(0.85);         /* apenas más oscura, para que el texto se lea */
 }
 
 /* Diapositiva con remeras: solo el botón, abajo */
@@ -103,7 +103,7 @@ h1, h2, .navbar-brand, .display-5, .display-6 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* En celular se navega deslizando: se ocultan las flechas */
+/* En celular se navega deslizando, por eso se ocultan las flechas */
 @media (max-width: 576px) {
   .carrusel-destacados .swiper-button-next,
   .carrusel-destacados .swiper-button-prev {
