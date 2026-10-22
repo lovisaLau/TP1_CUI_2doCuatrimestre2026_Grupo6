@@ -13,32 +13,50 @@ export const NavigationBar = () => {
   // El panel lateral ahora es estado local, solo lo abre el botón del carrito
   const [showMiniCart, setShowMiniCart] = useState(false);
 
+  // Estado para controlar el menú colapsable (hamburguesa) en celulares
+  const [expanded, setExpanded] = useState(false);
+
+  const cerrarMenu = () => setExpanded(false);
+
   const irA = (ruta) => {
     setShowMiniCart(false);
+    cerrarMenu();
     navigate(ruta);
   };
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
+      <Navbar 
+        bg="dark" 
+        variant="dark" 
+        expand="lg" 
+        sticky="top"
+        expanded={expanded}
+        onToggle={(isOpen) => setExpanded(isOpen)}
+      >
         <Container>
-          <Navbar.Brand as={Link} to="/" className="fw-bold d-flex align-items-center gap-2">
+          <Navbar.Brand 
+            as={Link} 
+            to="/" 
+            className="fw-bold d-flex align-items-center gap-2"
+            onClick={cerrarMenu}
+          >
             <img src={logo} alt="" width={40} height={40} />
             Awayi Remeras
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="menu-principal" />
           <Navbar.Collapse id="menu-principal">
             <Nav className="ms-auto align-items-lg-center">
-              <Nav.Link as={NavLink} to="/" end>
+              <Nav.Link as={NavLink} to="/" end onClick={cerrarMenu}>
                 Inicio
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/productos">
+              <Nav.Link as={NavLink} to="/productos" onClick={cerrarMenu}>
                 Productos
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/carrito">
+              <Nav.Link as={NavLink} to="/carrito" onClick={cerrarMenu}>
                 Carrito
               </Nav.Link>
-              <Nav.Link as={NavLink} to="/contacto">
+              <Nav.Link as={NavLink} to="/contacto" onClick={cerrarMenu}>
                 Finalizar compra
               </Nav.Link>
 
@@ -46,7 +64,10 @@ export const NavigationBar = () => {
               <Button
                 variant="outline-light"
                 className="ms-lg-3 mt-2 mt-lg-0 d-inline-flex align-items-center"
-                onClick={() => setShowMiniCart(true)}
+                onClick={() => {
+                  cerrarMenu();
+                  setShowMiniCart(true);
+                }}
                 aria-label={`Abrir carrito, ${totalCantidad} productos`}
               >
                 🛒
