@@ -8,6 +8,7 @@ import DetalleProducto from './pages/DetalleProducto';
 import Carrito from './pages/Carrito';
 import Contacto from './pages/Contacto';
 import NoEncontrada from './pages/NoEncontrada';
+import BotonIrArriba from './components/BotonIrArriba';
 import { CartProvider } from './context/CartContext';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <BotonIrArriba />
       </div>
     </CartProvider>
   );

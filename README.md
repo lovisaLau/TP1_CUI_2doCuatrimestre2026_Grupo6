@@ -81,6 +81,7 @@ La aplicación está inspirada en la cultura e identidad argentinas, y ofrece Pr
 - Barra de navegación responsive con React Router DOM: Inicio, Productos, Carrito y Finalizar compra.
 - Página 404 para cualquier dirección que no existe.
 - Al cambiar de página, la vista vuelve arriba y se actualiza el título de la pestaña.
+- **Navegación UX / Botón volver arriba:** Componente flotante (`BotonIrArriba`) que detecta el scroll de la página mediante `useEffect` y permite regresar al inicio de forma fluida (`smooth scroll`).
 
 ## 📁 Estructura del proyecto
 
@@ -88,6 +89,7 @@ La aplicación está inspirada en la cultura e identidad argentinas, y ofrece Pr
 src/
 ├── components/               # Componentes reutilizables
 │   ├── AvisoCarrito.jsx          # Aviso flotante (Toast) al agregar productos
+│   ├── BotonIrArriba.jsx         # Permite regresar al inicio de la pantalla de forma fluida
 │   ├── CambioDeRuta.jsx          # Vuelve arriba y cambia el título al cambiar de página
 │   ├── CarritoItem.jsx           # Producto del carrito (versión completa y compacta)
 │   ├── Footer.jsx                # Pie de página con links
