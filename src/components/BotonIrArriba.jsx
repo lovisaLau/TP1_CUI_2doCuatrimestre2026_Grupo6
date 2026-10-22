@@ -38,7 +38,7 @@ export const BotonIrArriba = () => {
       onClick={irArriba}
       className="position-fixed border border-secondary shadow-lg d-flex align-items-center justify-content-center"
       style={{
-        bottom: '25px',
+        bottom: '60px',
         right: '25px',
         zIndex: 1000,
         width: '45px',
